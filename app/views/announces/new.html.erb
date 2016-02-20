@@ -4,10 +4,11 @@
       <%= simple_form_for @announce do |f| %>
         <%= f.input :title, placeholder:"Appartement centre ville Paris" %>
         <%= f.input :description, placeholder:"" %>
-        <%= f.input :type, placeholder:"", collection: ["Appartement", "Maison", "Terrain", "Local Commercial"] %>
+        <%= f.input :announce_type, placeholder:"", collection: ["Appartement", "Maison", "Terrain", "Local Commercial"] %>
         <%= f.input :bed, collection: 1...6 %>
         <%= f.input :bath, collection: 1...6 %>
         <%= f.input :surface %>
+        <%= f.input :price %>
         <%= f.button :submit %>
       <% end %>
     </div>

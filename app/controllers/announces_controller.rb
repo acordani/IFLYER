@@ -15,7 +15,7 @@ class AnnouncesController < ApplicationController
   private
 
   def announce_params
-    params.require(:announce).permit(:price, :description, :type, :bed, :bath, :surface, :title)
+    params.require(:announce).permit(:price, :description, :announce_type, :bed, :bath, :surface, :title)
   end
 
 end
