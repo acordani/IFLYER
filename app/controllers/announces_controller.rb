@@ -1,5 +1,6 @@
 class AnnouncesController < ApplicationController
 
+
   def new
     @announce = Announce.new
   end
@@ -12,6 +13,10 @@ class AnnouncesController < ApplicationController
     end
   end
 
+  def show
+    @announce = Announce.find(params[:id])
+  end
+
   private
 
   def announce_params
@@ -20,12 +25,3 @@ class AnnouncesController < ApplicationController
 
 end
 
-
-# create_table "announces", force: :cascade do |t|
-#     t.integer  "price"
-#     t.text     "description"
-#     t.string   "type"
-#     t.integer  "bed"
-#     t.integer  "bath"
-#     t.integer  "surface"
-#     t.integer  "title"

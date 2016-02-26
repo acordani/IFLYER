@@ -10,7 +10,7 @@ gem 'devise'
 gem 'redis'
 
 gem 'cloudinary'
-gem 'carrierwave'
+
 
 gem "attachinary"
 gem "jquery-fileupload-rails"

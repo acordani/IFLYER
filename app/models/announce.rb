@@ -1,6 +1,6 @@
 class Announce < ActiveRecord::Base
 
-  has_many :users
-  has_attachments :photos, maximum: 10
+  belongs_to :user
 
+  has_attachments :photos, maximum: 5
 end
