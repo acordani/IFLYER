@@ -16,6 +16,8 @@ gem "attachinary"
 gem "jquery-fileupload-rails"
 gem "coffee-rails"
 
+gem 'owlcarousel-rails'
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'

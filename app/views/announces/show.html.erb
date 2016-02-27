@@ -1,4 +1,19 @@
 
-  <% @announce.photos.each do |photo| %>
-  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-<% end %>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="owl-demo" class="">
+        <% @announce.photos.each do |photo| %>
+          <div class="item" style="background-image: url(<%= cloudinary_url photo.path %>)">
+
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
