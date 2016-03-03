@@ -17,6 +17,17 @@
         <%= f.input :bath, collection: 1...6 %>
         <%= f.input :surface %>
         <%= f.input :price %>
+        <div class="row">
+          <div class="col-md-3">
+            <label>
+              Classification Energetique
+              <div class="form-group">
+                <%= f.input :class_energy, as: :select, collection: ["A","B","C","D","E","F","G"],label: false, class: "form-control" %>
+              </div>
+              <div class="mb-20"></div>
+            </label>
+          </div>
+        </div>
         <%= f.input :photos, as: :attachinary %>
         <%= f.button :submit %>
       <% end %>

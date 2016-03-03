@@ -2,37 +2,77 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3 text-center padded">
-    <h1><%= @announce.title.capitalize %></h1>
+      <h1><%= @announce.title.capitalize %></h1>
+    </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-    <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#photos" aria-controls="home" role="tab" data-toggle="tab">Photos</a></li>
-    <li role="presentation"><a href="#carte" aria-controls="profile" role="tab" data-toggle="tab">Carte</a></li>
-    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-  </ul>
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="photos">
-      <div id="owl-demo" class="">
-        <% @announce.photos.each do |photo| %>
-          <div class="item" style="background-image: url(<%= cloudinary_url photo.path %>)">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#photos" aria-controls="home" role="tab" data-toggle="tab">Photos</a></li>
+        <li role="presentation"><a href="#carte" aria-controls="profile" role="tab" data-toggle="tab">Carte</a></li>
+        <li role="presentation"><a href="#dpe" aria-controls="messages" role="tab" data-toggle="tab">Diagnostics</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="photos">
+          <div id="owl-demo" class="">
+            <% @announce.photos.each do |photo| %>
+              <div class="item" style="background-image: url(<%= cloudinary_url photo.path %>)">
 
+              </div>
+            <% end %>
           </div>
-        <% end %>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="dpe">
+              <div class="col-md-6 col-md-offset-3 mt-10">
+                <% if @announce.class_energy == "A" %>
+                  <div class="fleche fleche_a_active"> A </div> <span class="ok">OK</span><br>
+                <% else %>
+                  <div class="fleche fleche_a"> A </div><br>
+                <% end %>
+                <% if @announce.class_energy == "B" %>
+                  <div class="fleche fleche_b_active"> B </div><span class="ok">OK</span><br>
+                <% else %>
+                  <div class="fleche fleche_b"> B </div></br>
+                <% end %>
+                <% if @announce.class_energy == "C" %>
+                  <div class="fleche fleche_c_active"> C </div><span class="ok">OK</span><br>
+                <% else %>
+                  <div class="fleche fleche_c"> C </div><br>
+                <% end %>
+                <% if @announce.class_energy == "D" %>
+                  <div class="fleche fleche_d_active"> D </div><span class="ok">OK</span><br>
+                <% else %>
+                  <div class="fleche fleche_d"> D </div><br>
+                <% end %>
+                <% if @announce.class_energy == "E" %>
+                  <div class="fleche fleche_e_active"> E </div><span class="ok">OK</span><br>
+                <% else %>
+                  <div class="fleche fleche_e"> E </div><br>
+                <% end %>
+                <% if @announce.class_energy == "F" %>
+                  <div class="fleche fleche_f_active"> F </div><span class="ok">OK</span><br>
+                <% else %>
+                  <div class="fleche fleche_f"> F </div><br>
+                <% end %>
+                <% if @announce.class_energy == "G" %>
+                  <div class="fleche fleche_g_active"> G </div><span class="ok">OK</span><br>
+                <% else %>
+                  <div class="fleche fleche_g"> G </div><br>
+                <% end %>
+                <% if @announce.class_energy == "" %>
+                 <h5> Il n'y a pas de DPE pour le moment</h5>
+                <% end %>
+              </div>
+            </div>
+        <div role="tabpanel" class="tab-pane" id="messages">...</div>
+        <div role="tabpanel" class="tab-pane" id="settings">...</div>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="carte">
-      <div id="map" style="width: 100%; height: 600px;"></div>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="messages">...</div>
-    <div role="tabpanel" class="tab-pane" id="settings">...</div>
   </div>
-
-
-    </div>
-  </div>
+  <div id="map" style="width: 100%; height: 600px"></div>
 
 
 </div>
