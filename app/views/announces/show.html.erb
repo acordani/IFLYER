@@ -83,13 +83,17 @@
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
-
     $(document).on('ready', function() {
+      circle = [{lng: <%= @announce.longitude %>, lat: <%= @announce.latitude %>, radius: 400}]
+      circle_options = { strokeColor:"#FECC1F",strokeOpacity: 1, strokeWeight: 1, fillColor: 'transparent' }
       handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function(){
         markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.addCircles(circle, circle_options);
+        handler.getMap().setOptions({ scrollwheel: false });
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
+        handler.getMap().setZoom(14);
       });
     })
   <% end %>
