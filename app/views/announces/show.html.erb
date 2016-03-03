@@ -9,7 +9,7 @@
     <div class="col-md-12">
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#photos" aria-controls="home" role="tab" data-toggle="tab">Photos</a></li>
-        <li role="presentation"><a href="#carte" aria-controls="profile" role="tab" data-toggle="tab">Carte</a></li>
+        <li role="presentation"><a href="#description" aria-controls="profile" role="tab" data-toggle="tab">Carte</a></li>
         <li role="presentation"><a href="#dpe" aria-controls="messages" role="tab" data-toggle="tab">Diagnostics</a></li>
         <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
       </ul>
@@ -24,7 +24,9 @@
             <% end %>
           </div>
         </div>
-
+        <div role="tabpanel" class="tab-pane" id="description">
+          <div class="title title-announce"> <h4>aaaaa</h4></div>
+        </div>
         <div role="tabpanel" class="tab-pane" id="dpe">
               <div class="col-md-6 col-md-offset-3 mt-10">
                 <% if @announce.class_energy == "A" %>
@@ -67,12 +69,14 @@
                 <% end %>
               </div>
             </div>
-        <div role="tabpanel" class="tab-pane" id="messages">...</div>
+
         <div role="tabpanel" class="tab-pane" id="settings">...</div>
       </div>
     </div>
   </div>
-  <div id="map" style="width: 100%; height: 600px"></div>
+  <div class="title title-announce"> <h4>Situation du bien</h4> </div>
+    <div class="mt-10" id="map" style="width: 100%; height: 600px"></div>
+
 
 
 </div>
