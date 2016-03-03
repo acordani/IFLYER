@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   resources :announces
 
   mount Attachinary::Engine => "/attachinary"
+
+  Bitly.configure do |config|
+  config.api_version = 3
+  config.login = ENV['BITLY_LOGIN']
+  config.api_key = ENV['BITLY_KEY']
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

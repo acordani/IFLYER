@@ -30,6 +30,8 @@ gem 'geocoder'
 gem "coffee-rails"
 gem "gmaps4rails"
 
+gem 'bitly', '~> 0.9.0'
+
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
