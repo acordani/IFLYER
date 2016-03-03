@@ -8,7 +8,7 @@
     <div class="col-md-12">
     <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#photos" aria-controls="home" role="tab" data-toggle="tab">Photos</a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Carte</a></li>
+    <li role="presentation"><a href="#carte" aria-controls="profile" role="tab" data-toggle="tab">Carte</a></li>
     <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
     <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
   </ul>
@@ -23,7 +23,9 @@
         <% end %>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="profile">...</div>
+    <div role="tabpanel" class="tab-pane" id="carte">
+      <div id="map" style="width: 100%; height: 600px;"></div>
+    </div>
     <div role="tabpanel" class="tab-pane" id="messages">...</div>
     <div role="tabpanel" class="tab-pane" id="settings">...</div>
   </div>
@@ -34,6 +36,21 @@
 
 
 </div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+    })
+  <% end %>
+
+<% end %>
 
 
 
