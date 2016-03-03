@@ -85,7 +85,7 @@
   <%= javascript_tag do %>
     $(document).on('ready', function() {
       circle = [{lng: <%= @announce.longitude %>, lat: <%= @announce.latitude %>, radius: 400}]
-      circle_options = { strokeColor:"#FECC1F",strokeOpacity: 1, strokeWeight: 1, fillColor: 'transparent' }
+      circle_options = { strokeColor: "#267e4a",strokeOpacity: 1, strokeWeight: 2, fillColor: 'transparent' }
       handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function(){
         markers = handler.addMarkers(<%= raw @markers.to_json %>);
